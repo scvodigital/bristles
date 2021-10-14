@@ -35,10 +35,10 @@ export default class StringHelpers {
   static _split(input: string, delimeter?: string): string[] {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return [];
       }
-      if (typeof delimeter !== 'string') {
+      if (delimeter == null || delimeter.constructor.name !== 'String') {
         delimeter = ',';
       }
       return input.split(delimeter);
@@ -65,7 +65,7 @@ export default class StringHelpers {
   static _substr(input: string, from: number, length?: number): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       if (typeof from !== 'number') {
@@ -98,7 +98,7 @@ export default class StringHelpers {
   static _substring(input: string, start: number, end?: number): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       if (typeof start !== 'number') {
@@ -156,7 +156,7 @@ export default class StringHelpers {
   static _indexOf(input: string, match: string): number {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string' || !match || typeof match === 'object') {
+      if (input == null || input.constructor.name !== 'String' || !match || typeof match === 'object') {
         return -1;
       }
       return input.indexOf(match.toString());
@@ -182,7 +182,7 @@ export default class StringHelpers {
   static _lastIndexOf(input: string, match: string): number {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string' || !match || typeof match === 'object') {
+      if (input == null || input.constructor.name !== 'String' || !match || typeof match === 'object') {
         return -1;
       }
       return input.lastIndexOf(match.toString());
@@ -195,7 +195,7 @@ export default class StringHelpers {
   static _toUpperCase(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return input.toUpperCase();
@@ -208,7 +208,7 @@ export default class StringHelpers {
   static _toLowerCase(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return input.toLowerCase();
@@ -235,7 +235,7 @@ export default class StringHelpers {
   static _padStart(input: string, maxLength: number, fillString: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       if (typeof maxLength !== 'number') {
@@ -254,7 +254,7 @@ export default class StringHelpers {
   static _padEnd(input: string, maxLength: number, fillString: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       if (typeof maxLength !== 'number') {
@@ -273,7 +273,7 @@ export default class StringHelpers {
   static _repeat(input: string, times: number): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string' || typeof times !== 'number') {
+      if (input == null || input.constructor.name !== 'String' || typeof times !== 'number') {
         return '';
       }
       return input.repeat(times);
@@ -286,7 +286,7 @@ export default class StringHelpers {
   static _camelize(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).camelize().s;
@@ -299,7 +299,7 @@ export default class StringHelpers {
   static _capitalize(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).capitalize().s;
@@ -312,7 +312,7 @@ export default class StringHelpers {
   static _chompLeft(input: string, prefix: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       prefix = typeof prefix === 'string' ? prefix : input.substring(0, 1) || ' ';
@@ -326,7 +326,7 @@ export default class StringHelpers {
   static _chompRight(input: string, suffix: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       suffix = typeof suffix === 'string' ? suffix : input.substring(0, 1) || ' ';
@@ -340,7 +340,7 @@ export default class StringHelpers {
   static _collapseWhitespace(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).collapseWhitespace().s;
@@ -353,7 +353,7 @@ export default class StringHelpers {
   static _countOccurances(input: string, substring: string): number {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string' || typeof substring !== 'string') {
+      if (input == null || input.constructor.name !== 'String' || substring == null || substring.constructor.name !== 'String') {
         return 0;
       }
       return S(input).count(substring);
@@ -366,7 +366,7 @@ export default class StringHelpers {
   static _dasherize(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).dasherize().s;
@@ -379,7 +379,7 @@ export default class StringHelpers {
   static _decodeHTMLEntities(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).decodeHTMLEntities().s;
@@ -392,10 +392,10 @@ export default class StringHelpers {
   static _ensureLeft(input: string, prefix: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
-      if (typeof prefix !== 'string') {
+      if (prefix == null || prefix.constructor.name !== 'String') {
         return input;
       }
       return S(input).ensureLeft(prefix).s;
@@ -408,10 +408,10 @@ export default class StringHelpers {
   static _ensureRight(input: string, suffix: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
-      if (typeof suffix !== 'string') {
+      if (suffix == null || suffix.constructor.name !== 'String') {
         return input;
       }
       return S(input).ensureRight(suffix).s;
@@ -424,7 +424,7 @@ export default class StringHelpers {
   static _humanize(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).humanize().s;
@@ -437,7 +437,7 @@ export default class StringHelpers {
   static _lines(input: string): string[] {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return [];
       }
       return S(input).lines();
@@ -450,10 +450,10 @@ export default class StringHelpers {
   static _replace(input: string, match: string, replacement: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
-      if (typeof match !== 'string' || typeof replacement !== 'string') {
+      if (match == null || match.constructor.name !== 'String' || replacement == null || replacement.constructor.name !== 'String') {
         return input;
       }
       return input.split(match).join(replacement);
@@ -466,10 +466,10 @@ export default class StringHelpers {
   static _regexReplace(input: string, match: string, options: string, replacement: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
-      if (typeof match !== 'string' || typeof options !== 'string' || typeof replacement !== 'string') {
+      if (match == null || match.constructor.name !== 'String' || options == null || options.constructor.name !== 'String' || replacement == null || replacement.constructor.name !== 'String') {
         return input;
       }
       const regex = new RegExp(match, options);
@@ -483,7 +483,7 @@ export default class StringHelpers {
   static _slugify(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input.replace(/\//g, '-')).slugify().s;
@@ -496,7 +496,7 @@ export default class StringHelpers {
   static _trim(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).trim().s;
@@ -509,7 +509,7 @@ export default class StringHelpers {
   static _trimLeft(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).trimLeft().s;
@@ -522,7 +522,7 @@ export default class StringHelpers {
   static _trimRight(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).trimRight().s;
@@ -535,7 +535,7 @@ export default class StringHelpers {
   static _stripLeft(input: string, chars: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       chars = typeof chars === 'string' ? chars : '\s';
@@ -549,7 +549,7 @@ export default class StringHelpers {
   static _stripRight(input: string, chars: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       chars = typeof chars === 'string' ? chars : '\s';
@@ -565,7 +565,7 @@ export default class StringHelpers {
       const tags = Array.from(arguments);
       tags.pop();
       tags.shift();
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).stripTags(...tags).s;
@@ -578,7 +578,7 @@ export default class StringHelpers {
   static _titleCase(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).titleCase().s;
@@ -591,7 +591,7 @@ export default class StringHelpers {
   static _toBoolean(input: string): boolean {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return false;
       }
       return S(input).toBoolean();
@@ -604,7 +604,7 @@ export default class StringHelpers {
   static _truncate(input: string, length: number, chars: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       if (typeof length !== 'number') {
@@ -621,7 +621,7 @@ export default class StringHelpers {
   static _truncateHtml(input: string, length: number): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       if (typeof length !== 'number') {
@@ -660,7 +660,7 @@ export default class StringHelpers {
   static _underscore(input: string): string {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string') {
+      if (input == null || input.constructor.name !== 'String') {
         return '';
       }
       return S(input).underscore().s;
@@ -704,7 +704,7 @@ export default class StringHelpers {
   static _match(input: string, pattern: string, options: string): string|RegExpExecArray[] {
     try {
       const helper: HelperOptions = arguments[arguments.length - 1];
-      if (typeof input !== 'string' || typeof pattern !== 'string') {
+      if (input == null || input.constructor.name !== 'String' || pattern == null || pattern.constructor.name !== 'String') {
         return '';
       }
       options = typeof options === 'string' ? options : 'gi';

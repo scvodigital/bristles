@@ -36,10 +36,10 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._split = function (input, delimeter) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return [];
             }
-            if (typeof delimeter !== 'string') {
+            if (delimeter == null || delimeter.constructor.name !== 'String') {
                 delimeter = ',';
             }
             return input.split(delimeter);
@@ -66,7 +66,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._substr = function (input, from, length) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             if (typeof from !== 'number') {
@@ -99,7 +99,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._substring = function (input, start, end) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             if (typeof start !== 'number') {
@@ -161,7 +161,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._indexOf = function (input, match) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string' || !match || typeof match === 'object') {
+            if (input == null || input.constructor.name !== 'String' || !match || typeof match === 'object') {
                 return -1;
             }
             return input.indexOf(match.toString());
@@ -187,7 +187,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._lastIndexOf = function (input, match) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string' || !match || typeof match === 'object') {
+            if (input == null || input.constructor.name !== 'String' || !match || typeof match === 'object') {
                 return -1;
             }
             return input.lastIndexOf(match.toString());
@@ -200,7 +200,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._toUpperCase = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return input.toUpperCase();
@@ -213,7 +213,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._toLowerCase = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return input.toLowerCase();
@@ -242,7 +242,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._padStart = function (input, maxLength, fillString) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             if (typeof maxLength !== 'number') {
@@ -261,7 +261,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._padEnd = function (input, maxLength, fillString) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             if (typeof maxLength !== 'number') {
@@ -280,7 +280,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._repeat = function (input, times) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string' || typeof times !== 'number') {
+            if (input == null || input.constructor.name !== 'String' || typeof times !== 'number') {
                 return '';
             }
             return input.repeat(times);
@@ -293,7 +293,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._camelize = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).camelize().s;
@@ -306,7 +306,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._capitalize = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).capitalize().s;
@@ -319,7 +319,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._chompLeft = function (input, prefix) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             prefix = typeof prefix === 'string' ? prefix : input.substring(0, 1) || ' ';
@@ -333,7 +333,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._chompRight = function (input, suffix) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             suffix = typeof suffix === 'string' ? suffix : input.substring(0, 1) || ' ';
@@ -347,7 +347,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._collapseWhitespace = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).collapseWhitespace().s;
@@ -360,7 +360,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._countOccurances = function (input, substring) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string' || typeof substring !== 'string') {
+            if (input == null || input.constructor.name !== 'String' || substring == null || substring.constructor.name !== 'String') {
                 return 0;
             }
             return S(input).count(substring);
@@ -373,7 +373,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._dasherize = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).dasherize().s;
@@ -386,7 +386,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._decodeHTMLEntities = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).decodeHTMLEntities().s;
@@ -399,10 +399,10 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._ensureLeft = function (input, prefix) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
-            if (typeof prefix !== 'string') {
+            if (prefix == null || prefix.constructor.name !== 'String') {
                 return input;
             }
             return S(input).ensureLeft(prefix).s;
@@ -415,10 +415,10 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._ensureRight = function (input, suffix) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
-            if (typeof suffix !== 'string') {
+            if (suffix == null || suffix.constructor.name !== 'String') {
                 return input;
             }
             return S(input).ensureRight(suffix).s;
@@ -431,7 +431,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._humanize = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).humanize().s;
@@ -444,7 +444,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._lines = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return [];
             }
             return S(input).lines();
@@ -457,10 +457,10 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._replace = function (input, match, replacement) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
-            if (typeof match !== 'string' || typeof replacement !== 'string') {
+            if (match == null || match.constructor.name !== 'String' || replacement == null || replacement.constructor.name !== 'String') {
                 return input;
             }
             return input.split(match).join(replacement);
@@ -473,10 +473,10 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._regexReplace = function (input, match, options, replacement) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
-            if (typeof match !== 'string' || typeof options !== 'string' || typeof replacement !== 'string') {
+            if (match == null || match.constructor.name !== 'String' || options == null || options.constructor.name !== 'String' || replacement == null || replacement.constructor.name !== 'String') {
                 return input;
             }
             var regex = new RegExp(match, options);
@@ -490,7 +490,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._slugify = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input.replace(/\//g, '-')).slugify().s;
@@ -503,7 +503,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._trim = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).trim().s;
@@ -516,7 +516,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._trimLeft = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).trimLeft().s;
@@ -529,7 +529,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._trimRight = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).trimRight().s;
@@ -542,7 +542,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._stripLeft = function (input, chars) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             chars = typeof chars === 'string' ? chars : '\s';
@@ -556,7 +556,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._stripRight = function (input, chars) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             chars = typeof chars === 'string' ? chars : '\s';
@@ -573,7 +573,7 @@ var StringHelpers = /** @class */ (function () {
             var tags = Array.from(arguments);
             tags.pop();
             tags.shift();
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return (_a = S(input)).stripTags.apply(_a, tags).s;
@@ -586,7 +586,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._titleCase = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).titleCase().s;
@@ -599,7 +599,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._toBoolean = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return false;
             }
             return S(input).toBoolean();
@@ -612,7 +612,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._truncate = function (input, length, chars) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             if (typeof length !== 'number') {
@@ -629,7 +629,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._truncateHtml = function (input, length) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             if (typeof length !== 'number') {
@@ -664,7 +664,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._underscore = function (input) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string') {
+            if (input == null || input.constructor.name !== 'String') {
                 return '';
             }
             return S(input).underscore().s;
@@ -702,7 +702,7 @@ var StringHelpers = /** @class */ (function () {
     StringHelpers._match = function (input, pattern, options) {
         try {
             var helper = arguments[arguments.length - 1];
-            if (typeof input !== 'string' || typeof pattern !== 'string') {
+            if (input == null || input.constructor.name !== 'String' || pattern == null || pattern.constructor.name !== 'String') {
                 return '';
             }
             options = typeof options === 'string' ? options : 'gi';
