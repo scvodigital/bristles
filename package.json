@@ -3,7 +3,7 @@
   "engines": {
     "node": ">=10"
   },
-  "version": "0.0.45",
+  "version": "0.0.46",
   "description": "Handlebars but with some a lot of useful helpers",
   "main": "build/index.js",
   "types": "build/index.d.ts",
