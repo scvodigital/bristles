@@ -30,7 +30,7 @@
     "deepmerge": "^3.3.0",
     "dot-object": "^1.8.1",
     "fast-safe-stringify": "^2.0.6",
-    "handlebars": "4.1.2",
+    "handlebars": "4.7.7",
     "json-6": "^1.0.2",
     "mathjs": "^7.0.0",
     "string": "^3.3.3",
