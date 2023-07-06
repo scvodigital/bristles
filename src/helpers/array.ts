@@ -31,7 +31,7 @@ export default class ArrayHelpers {
       }
       return input.map(func);
     } catch(err) {
-      console.error('Bristles Error -> Helper: map, Error:', err.message);
+      console.log('Bristles Error -> Helper: map, Error:', err.message);
       return [];
     }
   }
@@ -54,7 +54,7 @@ export default class ArrayHelpers {
         output.push(value);
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: Pluck, Error:', err.message);
+      console.log('Bristles Error -> Helper: Pluck, Error:', err.message);
     }
 
     return output;
@@ -64,7 +64,7 @@ export default class ArrayHelpers {
     try {
       return MathJS.setUnion(inputA, inputB);
     } catch(err) {
-      console.error('Bristles Error -> Helper: union, Error:', err.message);
+      console.log('Bristles Error -> Helper: union, Error:', err.message);
       return [];
     }
   }
@@ -73,7 +73,7 @@ export default class ArrayHelpers {
     try {
       return MathJS.setIntersect(inputA, inputB);
     } catch(err) {
-      console.error('Bristles Error -> Helper: intersect, Error:', err.message);
+      console.log('Bristles Error -> Helper: intersect, Error:', err.message);
       return [];
     }
   }
@@ -82,7 +82,7 @@ export default class ArrayHelpers {
     try {
       return MathJS.setDifference(inputA, inputB);
     } catch(err) {
-      console.error('Bristles Error -> Helper: difference, Error:', err.message);
+      console.log('Bristles Error -> Helper: difference, Error:', err.message);
       return [];
     }
   }
@@ -124,7 +124,7 @@ export default class ArrayHelpers {
         }
       });
     } catch(err) {
-      console.error('Bristles Error -> Helper: filter, Error:', err.message);
+      console.log('Bristles Error -> Helper: filter, Error:', err.message);
     }
 
     return found;
@@ -180,7 +180,7 @@ export default class ArrayHelpers {
         return outputs.join(typeof join === 'string' ? join : '\n');
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: each, Error:', err.message);
+      console.log('Bristles Error -> Helper: each, Error:', err.message);
     }
 
     try {
@@ -188,7 +188,7 @@ export default class ArrayHelpers {
         return helper.inverse(this);
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: each, Inverse Error:', err);
+      console.log('Bristles Error -> Helper: each, Inverse Error:', err);
     }
 
     return '';
@@ -230,7 +230,7 @@ export default class ArrayHelpers {
         return clone;
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: sort, Error:', err.message);
+      console.log('Bristles Error -> Helper: sort, Error:', err.message);
       return Array.isArray(input) ? input : [];
     }
   }
@@ -246,7 +246,7 @@ export default class ArrayHelpers {
 
       return input.slice(begin, end);
     } catch(err) {
-      console.error('Bristles Error -> Helper: slice, Error:', err.message);
+      console.log('Bristles Error -> Helper: slice, Error:', err.message);
       return [];
     }
   }
@@ -270,7 +270,7 @@ export default class ArrayHelpers {
         return clone;
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: splice, Error:', err.message);
+      console.log('Bristles Error -> Helper: splice, Error:', err.message);
       return [];
     }
   }
@@ -287,7 +287,7 @@ export default class ArrayHelpers {
         return Object.keys(input).length;
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: count, Error:', err.message);
+      console.log('Bristles Error -> Helper: count, Error:', err.message);
       return 0;
     }
   }
@@ -312,7 +312,7 @@ export default class ArrayHelpers {
         return input[index];
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: itemAt, Error:', err.message);
+      console.log('Bristles Error -> Helper: itemAt, Error:', err.message);
       return null;
     }
   }
@@ -322,7 +322,7 @@ export default class ArrayHelpers {
       const args = Array.from(arguments);
       return args.slice(0, args.length - 1);
     } catch(err) {
-      console.error('Bristles Error -> Helper: array, Error:', err.message);
+      console.log('Bristles Error -> Helper: array, Error:', err.message);
       return [];
     }
   }
@@ -345,7 +345,7 @@ export default class ArrayHelpers {
       const right = options.hash.right || '';
       return `${left}${joined}${right}`;
     } catch(err) {
-      console.error('Bristles Error -> Helper: join, Error:', err.message);
+      console.log('Bristles Error -> Helper: join, Error:', err.message);
       return '';
     }
   }

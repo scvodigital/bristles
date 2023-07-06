@@ -43,7 +43,7 @@ export default class StringHelpers {
       }
       return input.split(delimeter);
     } catch(err) {
-      console.error('Bristles Error -> Helper: split, Error:', err.message);
+      console.log('Bristles Error -> Helper: split, Error:', err.message);
       return [];
     }
   }
@@ -76,7 +76,7 @@ export default class StringHelpers {
       }
       return input.substr(from, length);
     } catch(err) {
-      console.error('Bristles Error -> Helper: substr, Error:', err.message);
+      console.log('Bristles Error -> Helper: substr, Error:', err.message);
       return '';
     }
   }
@@ -109,7 +109,7 @@ export default class StringHelpers {
       }
       return input.substr(start, end);
     } catch(err) {
-      console.error('Bristles Error -> Helper: substring, Error:', err.message);
+      console.log('Bristles Error -> Helper: substring, Error:', err.message);
       return '';
     }
   }
@@ -135,7 +135,7 @@ export default class StringHelpers {
       const output = stringableArgs.join(helper.hash.separator || '');
       return output;
     } catch(err) {
-      console.error('Bristles Error -> Helper: concat, Error:', err.message);
+      console.log('Bristles Error -> Helper: concat, Error:', err.message);
       return '';
     }
   }
@@ -161,7 +161,7 @@ export default class StringHelpers {
       }
       return input.indexOf(match.toString());
     } catch(err) {
-      console.error('Bristles Error -> Helper: indexOf, Error:', err.message);
+      console.log('Bristles Error -> Helper: indexOf, Error:', err.message);
       return -1;
     }
   }
@@ -187,7 +187,7 @@ export default class StringHelpers {
       }
       return input.lastIndexOf(match.toString());
     } catch(err) {
-      console.error('Bristles Error -> Helper: indexOf, Error:', err.message);
+      console.log('Bristles Error -> Helper: indexOf, Error:', err.message);
       return -1;
     }
   }
@@ -200,7 +200,7 @@ export default class StringHelpers {
       }
       return input.toUpperCase();
     } catch(err) {
-      console.error('Bristles Error -> Helper: toUpperCase, Error:', err.message);
+      console.log('Bristles Error -> Helper: toUpperCase, Error:', err.message);
       return '';
     }
   }
@@ -213,7 +213,7 @@ export default class StringHelpers {
       }
       return input.toLowerCase();
     } catch(err) {
-      console.error('Bristles Error -> Helper: toLowerCase, Error:', err.message);
+      console.log('Bristles Error -> Helper: toLowerCase, Error:', err.message);
       return '';
     }
   }
@@ -227,7 +227,7 @@ export default class StringHelpers {
         return word;
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: inflect, Error:', err.message);
+      console.log('Bristles Error -> Helper: inflect, Error:', err.message);
       return singular || plural || '';
     }
   };
@@ -246,7 +246,7 @@ export default class StringHelpers {
       }
       return input.padStart(maxLength, fillString.toString());
     } catch(err) {
-      console.error('Bristles Error -> Helper: padStart, Error:', err.message);
+      console.log('Bristles Error -> Helper: padStart, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -265,7 +265,7 @@ export default class StringHelpers {
       }
       return input.padEnd(maxLength, fillString.toString());
     } catch(err) {
-      console.error('Bristles Error -> Helper: padEnd, Error:', err.message);
+      console.log('Bristles Error -> Helper: padEnd, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -278,7 +278,7 @@ export default class StringHelpers {
       }
       return input.repeat(times);
     } catch(err) {
-      console.error('Bristles Error -> Helper: repeat, Error:', err.message);
+      console.log('Bristles Error -> Helper: repeat, Error:', err.message);
       return '';
     }
   }
@@ -291,7 +291,7 @@ export default class StringHelpers {
       }
       return S(input).camelize().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: camelize, Error:', err.message);
+      console.log('Bristles Error -> Helper: camelize, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -304,7 +304,7 @@ export default class StringHelpers {
       }
       return S(input).capitalize().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: capitalize, Error:', err.message);
+      console.log('Bristles Error -> Helper: capitalize, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -318,7 +318,7 @@ export default class StringHelpers {
       prefix = typeof prefix === 'string' ? prefix : input.substring(0, 1) || ' ';
       return S(input).chompLeft(prefix).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: chompLeft, Error:', err.message);
+      console.log('Bristles Error -> Helper: chompLeft, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -332,7 +332,7 @@ export default class StringHelpers {
       suffix = typeof suffix === 'string' ? suffix : input.substring(0, 1) || ' ';
       return S(input).chompRight(suffix).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: chompRight, Error:', err.message);
+      console.log('Bristles Error -> Helper: chompRight, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -345,7 +345,7 @@ export default class StringHelpers {
       }
       return S(input).collapseWhitespace().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: collapseWhitespace, Error:', err.message);
+      console.log('Bristles Error -> Helper: collapseWhitespace, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -358,7 +358,7 @@ export default class StringHelpers {
       }
       return S(input).count(substring);
     } catch(err) {
-      console.error('Bristles Error -> Helper: countOccurances, Error:', err.message);
+      console.log('Bristles Error -> Helper: countOccurances, Error:', err.message);
       return 0;
     }
   }
@@ -371,7 +371,7 @@ export default class StringHelpers {
       }
       return S(input).dasherize().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: dasherize, Error:', err.message);
+      console.log('Bristles Error -> Helper: dasherize, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -384,7 +384,7 @@ export default class StringHelpers {
       }
       return S(input).decodeHTMLEntities().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: decodeHTMLEntities, Error:', err.message);
+      console.log('Bristles Error -> Helper: decodeHTMLEntities, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -400,7 +400,7 @@ export default class StringHelpers {
       }
       return S(input).ensureLeft(prefix).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: ensureLeft, Error:', err.message);
+      console.log('Bristles Error -> Helper: ensureLeft, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -416,7 +416,7 @@ export default class StringHelpers {
       }
       return S(input).ensureRight(suffix).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: ensureRight, Error:', err.message);
+      console.log('Bristles Error -> Helper: ensureRight, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -429,7 +429,7 @@ export default class StringHelpers {
       }
       return S(input).humanize().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: humanize, Error:', err.message);
+      console.log('Bristles Error -> Helper: humanize, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -442,7 +442,7 @@ export default class StringHelpers {
       }
       return S(input).lines();
     } catch(err) {
-      console.error('Bristles Error -> Helper: lines, Error:', err.message);
+      console.log('Bristles Error -> Helper: lines, Error:', err.message);
       return typeof input === 'string' ? [input] : [];
     }
   }
@@ -458,7 +458,7 @@ export default class StringHelpers {
       }
       return input.split(match).join(replacement);
     } catch(err) {
-      console.error('Bristles Error -> Helper: replace, Error:', err.message);
+      console.log('Bristles Error -> Helper: replace, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -475,7 +475,7 @@ export default class StringHelpers {
       const regex = new RegExp(match, options);
       return input.replace(regex, replacement);
     } catch(err) {
-      console.error('Bristles Error -> Helper: replace, Error:', err.message);
+      console.log('Bristles Error -> Helper: replace, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -488,7 +488,7 @@ export default class StringHelpers {
       }
       return S(input.replace(/\//g, '-')).slugify().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: slugify, Error:', err.message);
+      console.log('Bristles Error -> Helper: slugify, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -501,7 +501,7 @@ export default class StringHelpers {
       }
       return S(input).trim().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: trim, Error:', err.message);
+      console.log('Bristles Error -> Helper: trim, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -514,7 +514,7 @@ export default class StringHelpers {
       }
       return S(input).trimLeft().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: trimLeft, Error:', err.message);
+      console.log('Bristles Error -> Helper: trimLeft, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -527,7 +527,7 @@ export default class StringHelpers {
       }
       return S(input).trimRight().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: trimRight, Error:', err.message);
+      console.log('Bristles Error -> Helper: trimRight, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -541,7 +541,7 @@ export default class StringHelpers {
       chars = typeof chars === 'string' ? chars : '\s';
       return S(input).stripLeft(chars).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: stripLeft, Error:', err.message);
+      console.log('Bristles Error -> Helper: stripLeft, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -555,7 +555,7 @@ export default class StringHelpers {
       chars = typeof chars === 'string' ? chars : '\s';
       return S(input).stripRight(chars).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: stripRight, Error:', err.message);
+      console.log('Bristles Error -> Helper: stripRight, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -570,7 +570,7 @@ export default class StringHelpers {
       }
       return S(input).stripTags(...tags).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: stripTags, Error:', err.message);
+      console.log('Bristles Error -> Helper: stripTags, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -583,7 +583,7 @@ export default class StringHelpers {
       }
       return S(input).titleCase().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: titleCase, Error:', err.message);
+      console.log('Bristles Error -> Helper: titleCase, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -596,7 +596,7 @@ export default class StringHelpers {
       }
       return S(input).toBoolean();
     } catch(err) {
-      console.error('Bristles Error -> Helper: toBoolean, Error:', err.message);
+      console.log('Bristles Error -> Helper: toBoolean, Error:', err.message);
       return false;
     }
   }
@@ -613,7 +613,7 @@ export default class StringHelpers {
       chars = typeof chars === 'string' ? chars : '...';
       return S(input).truncate(length, chars).s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: truncate, Error:', err.message);
+      console.log('Bristles Error -> Helper: truncate, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -652,7 +652,7 @@ export default class StringHelpers {
         return output.html;
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: truncateHtml, Error:', err.message);
+      console.log('Bristles Error -> Helper: truncateHtml, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -665,7 +665,7 @@ export default class StringHelpers {
       }
       return S(input).underscore().s;
     } catch(err) {
-      console.error('Bristles Error -> Helper: underscore, Error:', err.message);
+      console.log('Bristles Error -> Helper: underscore, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }
@@ -696,7 +696,7 @@ export default class StringHelpers {
 
       return output;
     } catch(err) {
-      console.error('Bristles Error -> Helper: unindent, Error:', err.message);
+      console.log('Bristles Error -> Helper: unindent, Error:', err.message);
       return typeof arguments[0] === 'string' ? arguments[0] : '';
     }
   }
@@ -736,7 +736,7 @@ export default class StringHelpers {
 
       return matches;
     } catch(err) {
-      console.error('Bristles Error -> Helper: match, Error:', err.message);
+      console.log('Bristles Error -> Helper: match, Error:', err.message);
       return typeof input === 'string' ? input : '';
     }
   }

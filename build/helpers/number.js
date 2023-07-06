@@ -19,7 +19,7 @@ var NumberHelpers = /** @class */ (function () {
             return args.reduce(function (a, b) { return a + b; });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: sum, Error:', err.message);
+            console.log('Bristles Error -> Helper: sum, Error:', err.message);
             return 0;
         }
     };
@@ -38,7 +38,7 @@ var NumberHelpers = /** @class */ (function () {
             return output;
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: maths, Error:', err.message);
+            console.log('Bristles Error -> Helper: maths, Error:', err.message);
             return 0;
         }
     };
@@ -56,7 +56,7 @@ var NumberHelpers = /** @class */ (function () {
             return num.toLocaleString(locale, options);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: format, Error:', err.message);
+            console.log('Bristles Error -> Helper: format, Error:', err.message);
             return input;
         }
     };

@@ -19,7 +19,7 @@ export default class ConditionalHelpers {
       const evaluation = isOps(input) ? false : !!input;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation, { input });
     } catch (err) {
-      console.error('Bristles Error -> Helper: if, Error:', err.message);
+      console.log('Bristles Error -> Helper: if, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -30,7 +30,7 @@ export default class ConditionalHelpers {
       const evaluation = isOps(input) ? false : !!input;
       return ConditionalHelpers.conditionalResponse(helper, this, !evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: unless, Error:', err.message);
+      console.log('Bristles Error -> Helper: unless, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -49,7 +49,7 @@ export default class ConditionalHelpers {
       }
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: ifAny, Error:', err.message);
+      console.log('Bristles Error -> Helper: ifAny, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -68,7 +68,7 @@ export default class ConditionalHelpers {
       }
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: unlessAll, Error:', err.message);
+      console.log('Bristles Error -> Helper: unlessAll, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -78,11 +78,16 @@ export default class ConditionalHelpers {
     try {
       const args = Array.from(arguments);
       args.pop();
-      const trueArgs = args.filter(arg => { return !!arg; });
-      const evaluation = trueArgs.length === args.length;
+      let evaluation = true;
+      for (const arg of args) {
+        if (!arg) {
+          evaluation = false;
+          break;
+        }
+      }
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: ifAll, Error:', err.message);
+      console.log('Bristles Error -> Helper: ifAll, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -92,11 +97,16 @@ export default class ConditionalHelpers {
     try {
       const args = Array.from(arguments);
       args.pop();
-      const falseArgs = args.filter(arg => { return !arg; });
-      const evaluation = falseArgs.length === args.length;
+      let evaluation = true;
+      for (const arg of args) {
+        if (!!arg) {
+          evaluation = false;
+          break;
+        }
+      }
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: ifNone, Error:', err.message);
+      console.log('Bristles Error -> Helper: ifNone, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -110,7 +120,7 @@ export default class ConditionalHelpers {
       const evaluation = target.hasOwnProperty(property);
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: has, Error:', err.message);
+      console.log('Bristles Error -> Helper: has, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -124,7 +134,7 @@ export default class ConditionalHelpers {
       const evaluation = missing.length === 0;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation, { missing });
     } catch (err) {
-      console.error('Bristles Error -> Helper: ifAll, Error:', err.message);
+      console.log('Bristles Error -> Helper: ifAll, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -145,7 +155,7 @@ export default class ConditionalHelpers {
       const evaluation = has.length > 0;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation, { has, missing });
     } catch (err) {
-      console.error('Bristles Error -> Helper: ifAll, Error:', err.message);
+      console.log('Bristles Error -> Helper: ifAll, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -159,7 +169,7 @@ export default class ConditionalHelpers {
       const evaluation = typeof input === 'string';
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isString, Error:', err.message);
+      console.log('Bristles Error -> Helper: isString, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -173,7 +183,7 @@ export default class ConditionalHelpers {
       const evaluation = typeof input === 'number';
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isNumber, Error:', err.message);
+      console.log('Bristles Error -> Helper: isNumber, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -187,7 +197,7 @@ export default class ConditionalHelpers {
       const evaluation = Number.isNaN(input);
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isNumber, Error:', err.message);
+      console.log('Bristles Error -> Helper: isNumber, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -201,7 +211,7 @@ export default class ConditionalHelpers {
       const evaluation = Number.isFinite(input);
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isNumber, Error:', err.message);
+      console.log('Bristles Error -> Helper: isNumber, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -215,7 +225,7 @@ export default class ConditionalHelpers {
       const evaluation = typeof input === 'boolean';
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isBoolean, Error:', err.message);
+      console.log('Bristles Error -> Helper: isBoolean, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -229,7 +239,7 @@ export default class ConditionalHelpers {
       const evaluation = typeof input === 'object' && !Array.isArray(input);
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isObject, Error:', err.message);
+      console.log('Bristles Error -> Helper: isObject, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -243,7 +253,7 @@ export default class ConditionalHelpers {
       const evaluation = Array.isArray(input);
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isObject, Error:', err.message);
+      console.log('Bristles Error -> Helper: isObject, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -257,7 +267,7 @@ export default class ConditionalHelpers {
       const evaluation = typeof input === 'function';
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isFunction, Error:', err.message);
+      console.log('Bristles Error -> Helper: isFunction, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -271,7 +281,7 @@ export default class ConditionalHelpers {
       const evaluation = input === null;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isNull, Error:', err.message);
+      console.log('Bristles Error -> Helper: isNull, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -285,7 +295,7 @@ export default class ConditionalHelpers {
       const evaluation = typeof input === 'undefined';
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: isUndefined, Error:', err.message);
+      console.log('Bristles Error -> Helper: isUndefined, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -322,7 +332,7 @@ export default class ConditionalHelpers {
 
       return ConditionalHelpers.conditionalResponse(helper, this, differences.length === 0, { similarities, differences });
     } catch (err) {
-      console.error('Bristles Error -> Helper: gt, Error:', err.message);
+      console.log('Bristles Error -> Helper: gt, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -350,7 +360,7 @@ export default class ConditionalHelpers {
       const evaluation = inputA > inputB;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: gt, Error:', err.message);
+      console.log('Bristles Error -> Helper: gt, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -378,7 +388,7 @@ export default class ConditionalHelpers {
       const evaluation = inputA >= inputB;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: gt, Error:', err.message);
+      console.log('Bristles Error -> Helper: gt, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -406,7 +416,7 @@ export default class ConditionalHelpers {
       const evaluation = inputA < inputB;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: lt, Error:', err.message);
+      console.log('Bristles Error -> Helper: lt, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -434,7 +444,7 @@ export default class ConditionalHelpers {
       const evaluation = inputA <= inputB;
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: lte, Error:', err.message);
+      console.log('Bristles Error -> Helper: lte, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -459,7 +469,7 @@ export default class ConditionalHelpers {
         return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
       }
     } catch (err) {
-      console.error('Bristles Error -> Helper: eq, Error:', err.message);
+      console.log('Bristles Error -> Helper: eq, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -478,7 +488,7 @@ export default class ConditionalHelpers {
         return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
       }
     } catch (err) {
-      console.error('Bristles Error -> Helper: teq, Error:', err.message);
+      console.log('Bristles Error -> Helper: teq, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -497,7 +507,7 @@ export default class ConditionalHelpers {
       }
       return ConditionalHelpers.conditionalResponse(helper, this, length > 0, { length });
     } catch (err) {
-      console.error('Bristles Error -> Helper: any, Error:', err.message);
+      console.log('Bristles Error -> Helper: any, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -511,7 +521,7 @@ export default class ConditionalHelpers {
       const index = input.toString().indexOf(test.toString());
       return ConditionalHelpers.conditionalResponse(helper, this, index > -1, { index });
     } catch (err) {
-      console.error('Bristles Error -> Helper: contains, Error:', err.message);
+      console.log('Bristles Error -> Helper: contains, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -525,7 +535,7 @@ export default class ConditionalHelpers {
       const evaluation = input.toString().startsWith(test.toString());
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: startsWith, Error:', err.message);
+      console.log('Bristles Error -> Helper: startsWith, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -539,7 +549,7 @@ export default class ConditionalHelpers {
       const evaluation = input.toString().endsWith(test.toString());
       return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
     } catch (err) {
-      console.error('Bristles Error -> Helper: endsWith, Error:', err.message);
+      console.log('Bristles Error -> Helper: endsWith, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -562,7 +572,7 @@ export default class ConditionalHelpers {
         return ConditionalHelpers.conditionalResponse(helper, this, index > -1, { index });
       }
     } catch (err) {
-      console.error('Bristles Error -> Helper: includes, Error:', err.message);
+      console.log('Bristles Error -> Helper: includes, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -596,7 +606,7 @@ export default class ConditionalHelpers {
 
       return ConditionalHelpers.conditionalResponse(helper, this, !!output, { output });
     } catch (err) {
-      console.error('Bristles Error -> Helper: regexMatch, Error:', err.message);
+      console.log('Bristles Error -> Helper: regexMatch, Error:', err.message);
       return ConditionalHelpers.conditionalResponse(helper, this, false);
     }
   }
@@ -629,7 +639,7 @@ export default class ConditionalHelpers {
       }
       return output;
     } catch (err) {
-      console.error('Bristles Error -> Helper: elseIfWrapper, Error:', err.message);
+      console.log('Bristles Error -> Helper: elseIfWrapper, Error:', err.message);
       return '';
     }
   }
@@ -663,7 +673,7 @@ export default class ConditionalHelpers {
         return '';
       }
     } catch (err) {
-      console.error('Bristles Error -> Helper: elseIf, Error:', err.message);
+      console.log('Bristles Error -> Helper: elseIf, Error:', err.message);
       return '';
     }
   }
@@ -703,7 +713,7 @@ export default class ConditionalHelpers {
       }
       return output;
     } catch (err) {
-      console.error('Bristles Error -> Helper: switch, Error:', err.message);
+      console.log('Bristles Error -> Helper: switch, Error:', err.message);
       return '';
     }
   }
@@ -739,7 +749,7 @@ export default class ConditionalHelpers {
         return '';
       }
     } catch (err) {
-      console.error('Bristles Error -> Helper: case, Error:', err.message);
+      console.log('Bristles Error -> Helper: case, Error:', err.message);
       return '';
     }
   }
@@ -782,7 +792,7 @@ export default class ConditionalHelpers {
         return output;
       }
     } catch (err) {
-      console.error('Bristles Error -> Helper: [some conditional | conditionalResponse error], Error:', err);
+      console.log('Bristles Error -> Helper: [some conditional | conditionalResponse error], Error:', err);
       return false;
     }
   }

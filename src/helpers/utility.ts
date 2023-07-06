@@ -56,7 +56,7 @@ export default class UtilityHelpers {
         return SafeStringify(value, null, 4);
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: json, Error:', err.message);
+      console.log('Bristles Error -> Helper: json, Error:', err.message);
       return JSON.stringify({
         parseError: err.message
       }, null, 4);
@@ -72,7 +72,7 @@ export default class UtilityHelpers {
       }
       return typeof args[0];
     } catch(err) {
-      console.error('Bristles Error -> Helper: getType, Error:', err.message);
+      console.log('Bristles Error -> Helper: getType, Error:', err.message);
       return;
     }
   }
@@ -91,7 +91,7 @@ export default class UtilityHelpers {
       }
       return '';
     } catch(err) {
-      console.error('Bristles Error -> Helper: coalesce, Error:', err.message);
+      console.log('Bristles Error -> Helper: coalesce, Error:', err.message);
     }
   }
 
@@ -126,7 +126,7 @@ export default class UtilityHelpers {
         return map;
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: lookup, Error:', err.message);
+      console.log('Bristles Error -> Helper: lookup, Error:', err.message);
       return null;
     }
   }
@@ -141,7 +141,7 @@ export default class UtilityHelpers {
       context.__once.push(key);
       return options.fn(this);
     } catch(err) {
-      console.error('Bristles Error -> Helper: once, Error:', err.message);
+      console.log('Bristles Error -> Helper: once, Error:', err.message);
       return '';
     }
   }
@@ -160,7 +160,7 @@ export default class UtilityHelpers {
 
       return output;
     } catch(err) {
-      console.error('Bristles Error -> Helper: partial, Error:', err.message);
+      console.log('Bristles Error -> Helper: partial, Error:', err.message);
       return typeof partial === 'string' ? partial : '';
     }
   }
@@ -223,7 +223,7 @@ export default class UtilityHelpers {
         }
       }
     } catch(err) {
-      console.error('Bristles Error -> Helper: toHtmlAttributes, Error:', err.message);
+      console.log('Bristles Error -> Helper: toHtmlAttributes, Error:', err.message);
     }
     return attributes.join(' ');
   }
@@ -248,7 +248,7 @@ export default class UtilityHelpers {
 
       const output = evaluator(...args);
     } catch(err) {
-      console.error('Bristles Error -> Helper: eval, Error:', err.message);
+      console.log('Bristles Error -> Helper: eval, Error:', err.message);
       return err.message;
     }
   }

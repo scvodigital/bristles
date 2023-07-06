@@ -31,7 +31,7 @@ var ArrayHelpers = /** @class */ (function () {
             return input.map(func);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: map, Error:', err.message);
+            console.log('Bristles Error -> Helper: map, Error:', err.message);
             return [];
         }
     };
@@ -53,7 +53,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: Pluck, Error:', err.message);
+            console.log('Bristles Error -> Helper: Pluck, Error:', err.message);
         }
         return output;
     };
@@ -62,7 +62,7 @@ var ArrayHelpers = /** @class */ (function () {
             return MathJS.setUnion(inputA, inputB);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: union, Error:', err.message);
+            console.log('Bristles Error -> Helper: union, Error:', err.message);
             return [];
         }
     };
@@ -71,7 +71,7 @@ var ArrayHelpers = /** @class */ (function () {
             return MathJS.setIntersect(inputA, inputB);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: intersect, Error:', err.message);
+            console.log('Bristles Error -> Helper: intersect, Error:', err.message);
             return [];
         }
     };
@@ -80,7 +80,7 @@ var ArrayHelpers = /** @class */ (function () {
             return MathJS.setDifference(inputA, inputB);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: difference, Error:', err.message);
+            console.log('Bristles Error -> Helper: difference, Error:', err.message);
             return [];
         }
     };
@@ -132,7 +132,7 @@ var ArrayHelpers = /** @class */ (function () {
             });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: filter, Error:', err.message);
+            console.log('Bristles Error -> Helper: filter, Error:', err.message);
         }
         return found;
     };
@@ -182,7 +182,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: each, Error:', err.message);
+            console.log('Bristles Error -> Helper: each, Error:', err.message);
         }
         try {
             if (helper.inverse) {
@@ -190,7 +190,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: each, Inverse Error:', err);
+            console.log('Bristles Error -> Helper: each, Inverse Error:', err);
         }
         return '';
     };
@@ -231,7 +231,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: sort, Error:', err.message);
+            console.log('Bristles Error -> Helper: sort, Error:', err.message);
             return Array.isArray(input) ? input : [];
         }
     };
@@ -245,7 +245,7 @@ var ArrayHelpers = /** @class */ (function () {
             return input.slice(begin, end);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: slice, Error:', err.message);
+            console.log('Bristles Error -> Helper: slice, Error:', err.message);
             return [];
         }
     };
@@ -268,7 +268,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: splice, Error:', err.message);
+            console.log('Bristles Error -> Helper: splice, Error:', err.message);
             return [];
         }
     };
@@ -286,7 +286,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: count, Error:', err.message);
+            console.log('Bristles Error -> Helper: count, Error:', err.message);
             return 0;
         }
     };
@@ -311,7 +311,7 @@ var ArrayHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: itemAt, Error:', err.message);
+            console.log('Bristles Error -> Helper: itemAt, Error:', err.message);
             return null;
         }
     };
@@ -321,7 +321,7 @@ var ArrayHelpers = /** @class */ (function () {
             return args.slice(0, args.length - 1);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: array, Error:', err.message);
+            console.log('Bristles Error -> Helper: array, Error:', err.message);
             return [];
         }
     };
@@ -341,7 +341,7 @@ var ArrayHelpers = /** @class */ (function () {
             return "" + left + joined + right;
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: join, Error:', err.message);
+            console.log('Bristles Error -> Helper: join, Error:', err.message);
             return '';
         }
     };

@@ -20,7 +20,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation, { input: input });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: if, Error:', err.message);
+            console.log('Bristles Error -> Helper: if, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -31,7 +31,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, !evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: unless, Error:', err.message);
+            console.log('Bristles Error -> Helper: unless, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -51,7 +51,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: ifAny, Error:', err.message);
+            console.log('Bristles Error -> Helper: ifAny, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -71,7 +71,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: unlessAll, Error:', err.message);
+            console.log('Bristles Error -> Helper: unlessAll, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -80,12 +80,18 @@ var ConditionalHelpers = /** @class */ (function () {
         try {
             var args = Array.from(arguments);
             args.pop();
-            var trueArgs = args.filter(function (arg) { return !!arg; });
-            var evaluation = trueArgs.length === args.length;
+            var evaluation = true;
+            for (var _i = 0, args_3 = args; _i < args_3.length; _i++) {
+                var arg = args_3[_i];
+                if (!arg) {
+                    evaluation = false;
+                    break;
+                }
+            }
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: ifAll, Error:', err.message);
+            console.log('Bristles Error -> Helper: ifAll, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -94,12 +100,18 @@ var ConditionalHelpers = /** @class */ (function () {
         try {
             var args = Array.from(arguments);
             args.pop();
-            var falseArgs = args.filter(function (arg) { return !arg; });
-            var evaluation = falseArgs.length === args.length;
+            var evaluation = true;
+            for (var _i = 0, args_4 = args; _i < args_4.length; _i++) {
+                var arg = args_4[_i];
+                if (!!arg) {
+                    evaluation = false;
+                    break;
+                }
+            }
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: ifNone, Error:', err.message);
+            console.log('Bristles Error -> Helper: ifNone, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -113,7 +125,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: has, Error:', err.message);
+            console.log('Bristles Error -> Helper: has, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -131,7 +143,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper_1, this, evaluation, { missing: missing });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: ifAll, Error:', err.message);
+            console.log('Bristles Error -> Helper: ifAll, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -145,8 +157,8 @@ var ConditionalHelpers = /** @class */ (function () {
             var helper_2 = args.pop();
             var has = [];
             var missing = [];
-            for (var _a = 0, args_3 = args; _a < args_3.length; _a++) {
-                var arg = args_3[_a];
+            for (var _a = 0, args_5 = args; _a < args_5.length; _a++) {
+                var arg = args_5[_a];
                 if (target.hasOwnProperty(arg)) {
                     has.push(arg);
                 }
@@ -158,7 +170,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper_2, this, evaluation, { has: has, missing: missing });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: ifAll, Error:', err.message);
+            console.log('Bristles Error -> Helper: ifAll, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -172,7 +184,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isString, Error:', err.message);
+            console.log('Bristles Error -> Helper: isString, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -186,7 +198,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isNumber, Error:', err.message);
+            console.log('Bristles Error -> Helper: isNumber, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -200,7 +212,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isNumber, Error:', err.message);
+            console.log('Bristles Error -> Helper: isNumber, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -214,7 +226,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isNumber, Error:', err.message);
+            console.log('Bristles Error -> Helper: isNumber, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -228,7 +240,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isBoolean, Error:', err.message);
+            console.log('Bristles Error -> Helper: isBoolean, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -242,7 +254,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isObject, Error:', err.message);
+            console.log('Bristles Error -> Helper: isObject, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -256,7 +268,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isObject, Error:', err.message);
+            console.log('Bristles Error -> Helper: isObject, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -270,7 +282,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isFunction, Error:', err.message);
+            console.log('Bristles Error -> Helper: isFunction, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -284,7 +296,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isNull, Error:', err.message);
+            console.log('Bristles Error -> Helper: isNull, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -298,7 +310,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: isUndefined, Error:', err.message);
+            console.log('Bristles Error -> Helper: isUndefined, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -334,7 +346,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, differences.length === 0, { similarities: similarities, differences: differences });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: gt, Error:', err.message);
+            console.log('Bristles Error -> Helper: gt, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -369,7 +381,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: gt, Error:', err.message);
+            console.log('Bristles Error -> Helper: gt, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -404,7 +416,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: gt, Error:', err.message);
+            console.log('Bristles Error -> Helper: gt, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -439,7 +451,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: lt, Error:', err.message);
+            console.log('Bristles Error -> Helper: lt, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -474,7 +486,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: lte, Error:', err.message);
+            console.log('Bristles Error -> Helper: lte, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -499,7 +511,7 @@ var ConditionalHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: eq, Error:', err.message);
+            console.log('Bristles Error -> Helper: eq, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -519,7 +531,7 @@ var ConditionalHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: teq, Error:', err.message);
+            console.log('Bristles Error -> Helper: teq, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -539,7 +551,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, length_1 > 0, { length: length_1 });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: any, Error:', err.message);
+            console.log('Bristles Error -> Helper: any, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -553,7 +565,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, index > -1, { index: index });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: contains, Error:', err.message);
+            console.log('Bristles Error -> Helper: contains, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -567,7 +579,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: startsWith, Error:', err.message);
+            console.log('Bristles Error -> Helper: startsWith, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -581,7 +593,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, evaluation);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: endsWith, Error:', err.message);
+            console.log('Bristles Error -> Helper: endsWith, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -606,7 +618,7 @@ var ConditionalHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: includes, Error:', err.message);
+            console.log('Bristles Error -> Helper: includes, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -637,7 +649,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return ConditionalHelpers.conditionalResponse(helper, this, !!output, { output: output });
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: regexMatch, Error:', err.message);
+            console.log('Bristles Error -> Helper: regexMatch, Error:', err.message);
             return ConditionalHelpers.conditionalResponse(helper, this, false);
         }
     };
@@ -666,7 +678,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return output;
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: elseIfWrapper, Error:', err.message);
+            console.log('Bristles Error -> Helper: elseIfWrapper, Error:', err.message);
             return '';
         }
     };
@@ -696,7 +708,7 @@ var ConditionalHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: elseIf, Error:', err.message);
+            console.log('Bristles Error -> Helper: elseIf, Error:', err.message);
             return '';
         }
     };
@@ -731,7 +743,7 @@ var ConditionalHelpers = /** @class */ (function () {
             return output;
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: switch, Error:', err.message);
+            console.log('Bristles Error -> Helper: switch, Error:', err.message);
             return '';
         }
     };
@@ -762,7 +774,7 @@ var ConditionalHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: case, Error:', err.message);
+            console.log('Bristles Error -> Helper: case, Error:', err.message);
             return '';
         }
     };
@@ -807,7 +819,7 @@ var ConditionalHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: [some conditional | conditionalResponse error], Error:', err);
+            console.log('Bristles Error -> Helper: [some conditional | conditionalResponse error], Error:', err);
             return false;
         }
     };

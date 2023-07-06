@@ -59,7 +59,7 @@ var UtilityHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: json, Error:', err.message);
+            console.log('Bristles Error -> Helper: json, Error:', err.message);
             return JSON.stringify({
                 parseError: err.message
             }, null, 4);
@@ -75,7 +75,7 @@ var UtilityHelpers = /** @class */ (function () {
             return typeof args[0];
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: getType, Error:', err.message);
+            console.log('Bristles Error -> Helper: getType, Error:', err.message);
             return;
         }
     };
@@ -95,7 +95,7 @@ var UtilityHelpers = /** @class */ (function () {
             return '';
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: coalesce, Error:', err.message);
+            console.log('Bristles Error -> Helper: coalesce, Error:', err.message);
         }
     };
     UtilityHelpers._raw = function (options) {
@@ -131,7 +131,7 @@ var UtilityHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: lookup, Error:', err.message);
+            console.log('Bristles Error -> Helper: lookup, Error:', err.message);
             return null;
         }
     };
@@ -147,7 +147,7 @@ var UtilityHelpers = /** @class */ (function () {
             return options.fn(this);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: once, Error:', err.message);
+            console.log('Bristles Error -> Helper: once, Error:', err.message);
             return '';
         }
     };
@@ -164,7 +164,7 @@ var UtilityHelpers = /** @class */ (function () {
             return output;
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: partial, Error:', err.message);
+            console.log('Bristles Error -> Helper: partial, Error:', err.message);
             return typeof partial === 'string' ? partial : '';
         }
     };
@@ -221,7 +221,7 @@ var UtilityHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: toHtmlAttributes, Error:', err.message);
+            console.log('Bristles Error -> Helper: toHtmlAttributes, Error:', err.message);
         }
         return attributes.join(' ');
     };
@@ -248,7 +248,7 @@ var UtilityHelpers = /** @class */ (function () {
             var output = evaluator.apply(void 0, args);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: eval, Error:', err.message);
+            console.log('Bristles Error -> Helper: eval, Error:', err.message);
             return err.message;
         }
     };

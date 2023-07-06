@@ -27,7 +27,7 @@ var ObjectHelpers = /** @class */ (function () {
             return Object.values(input);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: values, Error:', err.message);
+            console.log('Bristles Error -> Helper: values, Error:', err.message);
             return null;
         }
     };
@@ -39,7 +39,7 @@ var ObjectHelpers = /** @class */ (function () {
             return Object.keys(input);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: keys, Error:', err.message);
+            console.log('Bristles Error -> Helper: keys, Error:', err.message);
             return null;
         }
     };
@@ -51,7 +51,7 @@ var ObjectHelpers = /** @class */ (function () {
             return Object.entries(input);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: entries, Error:', err.message);
+            console.log('Bristles Error -> Helper: entries, Error:', err.message);
             return null;
         }
     };
@@ -63,7 +63,7 @@ var ObjectHelpers = /** @class */ (function () {
             return dot.pick(path, context);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: get, Error:', err.message);
+            console.log('Bristles Error -> Helper: get, Error:', err.message);
             return null;
         }
     };
@@ -77,7 +77,7 @@ var ObjectHelpers = /** @class */ (function () {
             return {}; //deepmerge(...args);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: entries, Error:', err.message);
+            console.log('Bristles Error -> Helper: entries, Error:', err.message);
             return null;
         }
     };
@@ -89,7 +89,7 @@ var ObjectHelpers = /** @class */ (function () {
             return Querystring.stringify(input);
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: querystringify, Error:', err.message);
+            console.log('Bristles Error -> Helper: querystringify, Error:', err.message);
             return '';
         }
     };
@@ -108,7 +108,7 @@ var ObjectHelpers = /** @class */ (function () {
                 .replace(/[}\]],?$/gim, '</ul>');
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: listify, Error:', err.message);
+            console.log('Bristles Error -> Helper: listify, Error:', err.message);
             return '';
         }
     };
@@ -142,7 +142,7 @@ var ObjectHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: parse, Error:', err.message);
+            console.log('Bristles Error -> Helper: parse, Error:', err.message);
         }
     };
     ObjectHelpers._extend = function () {
@@ -167,7 +167,7 @@ var ObjectHelpers = /** @class */ (function () {
             }
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: extend, Error:', err.message);
+            console.log('Bristles Error -> Helper: extend, Error:', err.message);
             return null;
         }
     };
@@ -177,7 +177,7 @@ var ObjectHelpers = /** @class */ (function () {
             return Object.assign({}, helper.hash || {});
         }
         catch (err) {
-            console.error('Bristles Error -> Helper: o, Error:', err.message);
+            console.log('Bristles Error -> Helper: o, Error:', err.message);
             return {};
         }
     };

@@ -17,7 +17,7 @@ export default class DateHelpers {
       const parsed = DateFns.parse(date, format, new Date());
       return parsed;
     } catch(err) {
-      console.error('Bristles Error -> Helper: dateParse, Error:', err.message);
+      console.log('Bristles Error -> Helper: dateParse, Error:', err.message);
       return new Date(0);
     }
   }
@@ -35,7 +35,7 @@ export default class DateHelpers {
 
       return formatted;
     } catch(err) {
-      console.error('Bristles Error -> Helper: dateFormat, Error:', err.message);
+      console.log('Bristles Error -> Helper: dateFormat, Error:', err.message);
       return '';
     }
   }
@@ -51,7 +51,7 @@ export default class DateHelpers {
       const output = DateMaths.parse(expression, { forceNow: date });
       return output.toDate();
     } catch(err) {
-      console.error('Bristles Error -> Helper: dateMaths, Error:', err.message);
+      console.log('Bristles Error -> Helper: dateMaths, Error:', err.message);
       return new Date();
     }
   }
@@ -75,7 +75,7 @@ export default class DateHelpers {
       const output = DateFns.formatDistance(date, baseDate, options);
       return output;
     } catch(err) {
-      console.error('Bristles Error -> Helper: dateMaths, Error:', err.message);
+      console.log('Bristles Error -> Helper: dateMaths, Error:', err.message);
       return new Date();
     }
   }
